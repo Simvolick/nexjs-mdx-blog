@@ -10,9 +10,11 @@ const components = { Button, SyntaxHighlighter }
 
 const PostPage = ({ frontMatter, mdxSource}) => {
     return (
-        <div className="mt-4 m-4">
-            <h1>{frontMatter.title}</h1>
-            <MDXRemote {...mdxSource} components={components}/>
+        <div className="mt-4 m-4 flex-auto grid justify-items-center">
+            <h1 className=" text-2xl m-5">{frontMatter.title}</h1>
+            <div>
+                <MDXRemote  {...mdxSource} components={components}/>
+            </div>
         </div>
     )
 }
