@@ -8,7 +8,7 @@ export default function Home( { posts } ) {
   return (
     <div className="mt-5">
         <div className="font-semibold text-2xl flex flex-auto justify-center">
-            <div className="bg-slate-500">Все статьи:</div></div>
+            <div className="bg-orange-400 p-5 rounded-3xl">Все статьи:</div></div>
       {posts.map((post, index) => (
         <Link href={'/blog/' + post.slug} passHref key={index}>
           <div className="mt-3 cursor-pointer text-center">
