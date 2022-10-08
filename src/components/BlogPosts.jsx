@@ -1,25 +1,48 @@
 import Link from 'next/link'
 
-const BlogPosts = () => {
-  return (
-    <nav className='p-3 border-b-8'>
-        <Link href='/' >
-        <div className='text-center m-2 cursor-pointer text-lg font-semibold' alt="Клим Ядринцев">Klim Yadrintsev</div>
-        </Link>
-        <div className='mx-5 flex flex-row items-center justify-center'>
-            <Link href='/' >
-                <h2 className='cursor-pointer bg-teal-200 px-3 rounded-xl mx-2'>Главная</h2>
-            </Link>
-            <Link href='/bio'>
-                <h2 className='ms-5 cursor-pointer bg-teal-200 px-3 rounded-xl mx-2'>Bio</h2>
-            </Link>
-            <Link href='/blog'>
-                <h2 className='ms-5 cursor-pointer bg-teal-200 px-3 rounded-xl mx-2'>Блог</h2>
-            </Link>
-        </div>
-    </nav>
+const BlogPosts = ( {posts} ) => {
+return (
+    <div className="mt-5">
+        {posts.map((post, index) => (
+        <Link href={'/blog/' + post.slug} passHref key={index}>
+            <div className="mt-3 cursor-pointer text-center">
+            <div className="m-2">
+            <h1 className="text-center">{post.frontMatter.title}</h1>
+            <p className="mt-3 text-center">{post.frontMatter.description}</p>
+            <p className="mt-3 text-center">{post.frontMatter.date}</p>
 
+            </div>
+            <div className="p-5">
+                <Image className="rounded-3xl" src={post.frontMatter.thumbnailUrl} alt={post.frontMatter.title} width={500} height={500} />
+            </div>
+
+            </div>
+        </Link>
+        ))}
+    </div>
     )
 }
+
+export const getStaticProps = async () => {
+    const files = fs.readdirSync(path.join('src', 'posts'))
+  
+    const posts = files.map(filename => {
+      const markdownWithMeta = fs.readFileSync(path.join('src', 'posts', filename))
+      const { data:frontMatter } = matter(markdownWithMeta)
+       
+      return {
+        frontMatter,
+        slug: filename.split('.')[0]
+      }
+    })
+  
+    return {
+      props: {
+        posts
+      }
+    }
+}
+  
+
 
 export default BlogPosts
