@@ -11,7 +11,7 @@ const components = { Button, SyntaxHighlighter }
 
 const PostPage = ({ frontMatter, mdxSource}) => {
     return (
-        <div className="mt-4 m-4 flex-auto grid justify-items-center">
+        <div className="mt-4 m-8 flex-auto grid justify-items-center">
             <h1 className=" text-4xl lg:text-6xl font-bold m-5">{frontMatter.title}</h1>
             <h3 className=" text-lg lg:text-2xl font-bold m-5">{frontMatter.description}</h3>
             <Image className="rounded-3xl" src={frontMatter.thumbnailUrl} alt={frontMatter.title} width={500} height={500} />
