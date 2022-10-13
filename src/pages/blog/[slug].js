@@ -5,14 +5,17 @@ import { serialize } from "next-mdx-remote/serialize"
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { MDXRemote } from 'next-mdx-remote'
 import Button from "../../components/Button"
+import Image from "next/image"
 
 const components = { Button, SyntaxHighlighter }
 
 const PostPage = ({ frontMatter, mdxSource}) => {
     return (
         <div className="mt-4 m-4 flex-auto grid justify-items-center">
-            <h1 className=" text-2xl m-5">{frontMatter.title}</h1>
-            <div>
+            <h1 className=" text-4xl lg:text-6xl font-bold m-5">{frontMatter.title}</h1>
+            <h3 className=" text-lg lg:text-2xl font-bold m-5">{frontMatter.description}</h3>
+            <Image className="rounded-3xl" src={frontMatter.thumbnailUrl} alt={frontMatter.title} width={500} height={500} />
+            <div className="prose lg:prose-xl">
                 <MDXRemote  {...mdxSource} components={components}/>
             </div>
         </div>
