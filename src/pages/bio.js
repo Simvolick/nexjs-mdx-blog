@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 const Bio = () => {
   return (
-    <div className='mt-3 text-center text-xl'>
+    <div className='mt-3 text-center text-xl mx-5'>
         <p className='mt-3'>Klim Yadrintsev</p>
-        <p className='mt-3'>Пишу про Софт про бизнес и веб</p>
-        <p className='mt-3'>Можете найти меня на твиттере <Link href="https://twitter.com/YadrintsevKlim"><a className='text-blue-500'>Twitter</a></Link></p>
+        <p className='mt-3'>Write about software, AI and economics and productivity</p>
+        <p className='mt-3'>Contact @ <Link href="https://twitter.com/YadrintsevKlim"><a className='text-blue-500'>Twitter</a></Link></p>
         
 
     </div>

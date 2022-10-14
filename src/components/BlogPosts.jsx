@@ -7,7 +7,7 @@ import Image from "next/image"
 
 const BlogPosts = ( {posts} ) => {
   return (
-    <div className="mt-5">
+    <div className="mt-5 mx-5">
         <div className="font-semibold text-2xl flex flex-auto justify-center">
             <div className="bg-orange-400 p-5 rounded-3xl">All Posts:</div></div>
       {posts.map((post, index) => (
@@ -19,7 +19,7 @@ const BlogPosts = ( {posts} ) => {
             <p className="mt-3 text-center">{post.frontMatter.date}</p>
 
             </div>
-            <div className="p-5">
+            <div className="p-5 flex justify-center">
               <Image className="rounded-3xl" src={post.frontMatter.thumbnailUrl} alt={post.frontMatter.title} width={500} height={500} />
             </div>
 
