@@ -8,8 +8,10 @@ import BlogPosts from "../../components/BlogPosts"
 
 export default function Home( { posts } ) {
   return (
-    <div className="mt-5">
+    <div className="mt-5 flex flex-col items-center">
+      <p className="-mt-5">All of the Blog Posts:</p>
          <BlogPosts posts={posts}/>
+         {console.log(posts)}
     </div>
   )
 }
