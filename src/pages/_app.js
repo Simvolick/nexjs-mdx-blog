@@ -1,6 +1,7 @@
 import '../../styles/globals.css'
 import Head from 'next/head'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
   return(
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }) {
     <Component {...pageProps} />
       </main>
     </div>
+    <Footer/>
     </>
   )
 }
