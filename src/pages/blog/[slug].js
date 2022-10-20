@@ -15,7 +15,7 @@ const PostPage = ({ frontMatter, mdxSource}) => {
             <h1 className=" text-4xl lg:text-6xl font-bold m-5">{frontMatter.title}</h1>
             <h3 className=" text-lg lg:text-2xl font-bold m-5">{frontMatter.description}</h3>
             <Image className="rounded-3xl" src={frontMatter.thumbnailUrl} alt={frontMatter.title} width={500} height={500} />
-            <div className="prose lg:prose-xl">
+            <div className="prose lg:prose-xl pt-10">
                 <MDXRemote  {...mdxSource} components={components}/>
             </div>
         </div>
