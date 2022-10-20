@@ -9,7 +9,7 @@ import BlogPosts from "../../components/BlogPosts"
 export default function Home( { posts, sortedPosts } ) {
   return (
     <div className="mt-5 flex flex-col items-center">
-      <p className="-mt-5">All of the Blog Posts:</p>
+      <p className="-mt-5">Latest Blog Posts:</p>
          <BlogPosts posts={sortedPosts}/>
     </div>
   )
@@ -32,6 +32,7 @@ export const getStaticProps = async () => {
   })
 
   // I need to sort posts by jsonDate
+  // Later write the bottom part of sort with passing frontMatter.date
 
   const sortedPosts = posts.sort((a, b) => {
     return new Date(b.jsonDate) - new Date(a.jsonDate)
