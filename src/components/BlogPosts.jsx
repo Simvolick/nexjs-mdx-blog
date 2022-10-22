@@ -11,8 +11,8 @@ const BlogPosts = ( {posts} ) => {
         <div className="font-semibold text-2xl flex flex-auto justify-center">
           <div className="bg-orange-400 px-3 py-1 rounded-xl">All Posts:</div></div>
       {posts.map((post, index) => (
-        <Link href={'/blog/' + post.slug} passHref key={index}>
-          <div className="mt-3 cursor-pointer text-ce1nter">
+        <Link href={'/blog/' + post.slug} key={index}>
+          <div className="mt-3 cursor-pointer text-center">
             <div className="m-2">
             <h1 className="text-center text-2xl font-medium">{post.frontMatter.title}</h1>
             <p className="mt-3 text-center">{post.frontMatter.description}</p>

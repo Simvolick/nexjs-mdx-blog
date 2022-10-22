@@ -6,10 +6,10 @@ import Image from "next/image"
 import BlogPosts from "../../components/BlogPosts"
 
 
-export default function Home( { posts, sortedPosts } ) {
+export default function Home( { sortedPosts } ) {
   return (
     <div className="mt-5 flex flex-col items-center">
-      <p className="-mt-5">Latest Blog Posts:</p>
+      <p className="-mt-5 text-slate-500">Latest Blog Posts ⬇️</p>
          <BlogPosts posts={sortedPosts}/>
     </div>
   )
