@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 mt-10">
+    <footer className="mt-10">
       <div className="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
