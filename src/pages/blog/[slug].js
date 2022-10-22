@@ -6,8 +6,9 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import { MDXRemote } from 'next-mdx-remote'
 import Button from "../../components/Button"
 import Image from "next/image"
+import { InstagramEmbed } from 'react-social-media-embed';
 
-const components = { Button, SyntaxHighlighter }
+const components = { Button, SyntaxHighlighter, InstagramEmbed }
 
 const PostPage = ({ frontMatter, mdxSource}) => {
     return (
@@ -47,11 +48,11 @@ const getStaticProps = async ({ params: { slug } }) => {
         props: {
             frontMatter,
             slug,
-            mdxSource
+            mdxSource,
         }
     }
 
 }
 
-export { getStaticPaths, getStaticProps }
+export { getStaticPaths, getStaticProps}
 export default PostPage
