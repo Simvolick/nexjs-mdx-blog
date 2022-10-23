@@ -2,8 +2,6 @@
 // that will be used on every page of the site
 // using nextjs and react and tailwindcss
 
-// Change the code below for footer to always be fixed to the bottom of the page
-
 
 
 import Link from 'next/link'
