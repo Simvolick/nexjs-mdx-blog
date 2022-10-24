@@ -16,6 +16,7 @@ export default function handler(req, res) {
   // Found the name.
   // Sends a HTTP success code
   res.status(200).json({ data: `${body.email}` })
+  
 
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}).base('appsWzk7HUwFP3BCO');
