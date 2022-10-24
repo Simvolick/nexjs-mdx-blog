@@ -56,6 +56,7 @@ const handleSubmit = async (event) => {
     // If server returns the name submitted, that means the form works.
     const result = await response.json();
     alert(`Thank you for signing up: ${result.data} 📨`);
+    return result;
     
   };
 
