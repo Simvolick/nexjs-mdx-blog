@@ -15,7 +15,8 @@ function MyApp({ Component, pageProps }) {
       <Nav/>
       <main>
     <Component {...pageProps} />
-    <EmailForm/>
+    <EmailFormNative/>
+    {/* <EmailForm/> */}
       </main>
     </div>
     <Footer/>

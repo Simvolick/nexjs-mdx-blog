@@ -9,7 +9,7 @@ const EmailFormNative = ({text}) => {
                   <p className="text-gray-700 text-xs pl-px">
                   ✅ Get to know latest tips and tricks to productivity, marketing and being human 📬
                   </p>
-                  <form action="/api/form" method='post' className="mt-2">
+                  <form action="/api/airtable" method='post' className="mt-2">
                       <div className="flex items-center">
                           <input type="email" id='email' name='email' className="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" required/>
                           <button className="bg-blue-600 text-gray-200 px-5 py-2 rounded shadow -ml-32" type='submit' >Sign Up</button>
