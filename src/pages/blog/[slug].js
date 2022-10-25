@@ -10,21 +10,6 @@ import { InstagramEmbed } from 'react-social-media-embed';
 
 const components = { Button, SyntaxHighlighter, InstagramEmbed }
 
-const PostPage = ({ frontMatter, mdxSource}) => {
-    return (
-        <div className="mt-4 m-8 flex-auto grid justify-items-center">
-            <div className="md:mx-32 text-center">
-            <h1 className=" text-4xl lg:text-6xl font-bold m-5">{frontMatter.title}</h1>
-            <h3 className=" text-lg lg:text-2xl font-bold m-5">{frontMatter.description}</h3>
-            </div>
-            <Image className="rounded-3xl" src={frontMatter.thumbnailUrl} alt={frontMatter.title} width={500} height={350} />
-            <div className="prose lg:prose-xl pt-10">
-                <MDXRemote  {...mdxSource} components={components}/>
-            </div>
-        </div>
-    )
-}
-
 const getStaticPaths = async () => {
     const files = fs.readdirSync(path.join('src', 'posts'))
 
@@ -55,6 +40,23 @@ const getStaticProps = async ({ params: { slug } }) => {
     }
 
 }
+
+const PostPage = ({ frontMatter, mdxSource}) => {
+    return (
+        <div className="mt-4 m-8 flex-auto grid justify-items-center">
+            <div className="md:mx-32 text-center">
+            <h1 className=" text-4xl lg:text-6xl font-bold m-5">{frontMatter.title}</h1>
+            <h3 className=" text-lg lg:text-2xl font-bold m-5">{frontMatter.description}</h3>
+            </div>
+            <Image className="rounded-3xl" src={frontMatter.thumbnailUrl} alt={frontMatter.title} width={500} height={350} />
+            <div className="prose lg:prose-xl pt-10">
+                <MDXRemote  {...mdxSource} components={components}/>
+            </div>
+        </div>
+    )
+}
+
+
 
 export { getStaticPaths, getStaticProps}
 export default PostPage
