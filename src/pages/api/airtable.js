@@ -34,6 +34,7 @@ export default function handler(req, res) {
     }
     records.forEach(function (record) {
       console.log(record.getId());
+      alert("Thank you for subscribing!");
     });
   });
 }

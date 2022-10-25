@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return(
     <>
     <Head>
-      <title>Next and MDX Blog</title>
+      <title>🌟KlimY Blog🔥</title>
     </Head>
     <div>
       <Nav/>
