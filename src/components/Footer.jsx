@@ -42,6 +42,7 @@ const Footer = () => {
           <a
             href="https://www.facebook.com/klimyadrintsev"
             className="text-gray-400 hover:text-gray-300"
+            target="_blank"
           >
             <span className="sr-only">Facebook</span>
             <svg
@@ -56,6 +57,7 @@ const Footer = () => {
           <a
             href="https://www.instagram.com/klimyadrintsev/"
             className="text-gray-400 hover:text-gray-300"
+            target="_blank"
           >
             <span className="sr-only">Instagram</span>
             <svg
@@ -70,6 +72,7 @@ const Footer = () => {
           <a
             href="https://www.twitter.com/yadrintsevklim/"
             className="text-gray-400 hover:text-gray-300"
+            target="_blank"
           >
             <span className="sr-only">Twitter</span>
             <svg
@@ -84,6 +87,7 @@ const Footer = () => {
           <a
             href="https://www.telegram.com/klimyadrintsev/"
             className="text-gray-400 hover:text-gray-300"
+            target="_blank"
           >
             <span className="sr-only">Telegram</span>
             <svg
