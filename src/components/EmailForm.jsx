@@ -35,7 +35,6 @@ const handleSubmit = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-    await fetch('/api/airtable')
   };
 
 
