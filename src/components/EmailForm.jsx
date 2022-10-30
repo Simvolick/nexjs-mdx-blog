@@ -28,12 +28,24 @@ const handleSubmit = async (event) => {
     // Get the email from the form.
     const email = event.target.email.value;
     // Send the email to the API.
-    const response = await fetch('/api/airtable', {
-      method: 'POST',
-      body: JSON.stringify({ email }),
-      headers: {
-        'Content-Type': 'application/json',
+
+    var Airtable = require('airtable');
+    var base = new Airtable({apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}).base('appsWzk7HUwFP3BCO');
+
+    base('Emails').create([
+      {
+        "fields": {
+          "Email": `${email}`,
+        }
       },
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
     });
   };
 

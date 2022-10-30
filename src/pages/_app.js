@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import EmailForm from '../components/EmailForm'
-import EmailFormNative from '../components/EmailFormNative'
 
 function MyApp({ Component, pageProps }) {
   return(
