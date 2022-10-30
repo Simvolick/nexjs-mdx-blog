@@ -12,7 +12,6 @@ const BlogPosts = ( {posts} ) => {
           <div className="bg-orange-400 px-3 py-1 rounded-xl">All Posts:</div></div>
       {posts.map((post, index) => (
           <Link href={'/blog/' + post.slug} passHref key={index}>
-            <a>
           <div className="mt-3 text-center items-center cursor-pointer md:mx-32 lg:mx-52" >
             <div className="m-2">
             <h2 className="text-2xl font-medium">{post.frontMatter.title}</h2>
@@ -25,7 +24,6 @@ const BlogPosts = ( {posts} ) => {
             </div>
 
           </div>
-          </a>
           </Link>
         ))}
     </div>

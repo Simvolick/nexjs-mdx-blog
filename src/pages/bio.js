@@ -7,7 +7,7 @@ const Bio = () => {
         <p className='mt-3'>Klim Yadrintsev</p>
         <p className='mt-3'>Write about software, AI and economics and productivity</p>
         <p className='mt-3'>A Founder and a CEO of a Fashion E-commerce valued over $100 million</p>
-        <p className='mt-3'>Contact @ <Link href="https://twitter.com/YadrintsevKlim"><a className='text-blue-500'>Twitter</a></Link></p>
+        <p className='mt-3'>Contact @ <Link href="https://twitter.com/YadrintsevKlim"  className='text-blue-500'>Twitter</Link></p>
 
     </div>
       <div>

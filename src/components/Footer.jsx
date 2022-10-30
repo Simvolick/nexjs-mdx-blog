@@ -15,10 +15,8 @@ const Footer = () => {
           aria-label="Footer"
         >
           <div className="px-5 pt-2">
-            <Link href="/">
-              <a className="text-lg text-gray-400 hover:text-gray-300">
+            <Link href="/" className="text-lg text-gray-400 hover:text-gray-300">
                 Home
-              </a>
             </Link>
           </div>
 
