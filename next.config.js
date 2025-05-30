@@ -11,7 +11,16 @@ const nextConfig = {
     return config;
 },
   reactStrictMode: true,
-  swcMinify: true,
+  images: {
+    domains: ['dl.airtable.com'],
+  },
+  // Performance optimizations inspired by NextFaster
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+  // Enable compression and other optimizations
+  compress: true,
+  poweredByHeader: false,
 }
 
 module.exports = nextConfig

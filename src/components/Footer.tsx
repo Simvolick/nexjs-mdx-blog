@@ -2,11 +2,9 @@
 // that will be used on every page of the site
 // using nextjs and react and tailwindcss
 
+import FastLink from './FastLink';
 
-
-import Link from 'next/link'
-
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="mt-10">
       <div className="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:px-6 lg:px-8">
@@ -15,9 +13,9 @@ const Footer = () => {
           aria-label="Footer"
         >
           <div className="px-5 pt-2">
-            <Link href="/" className="text-lg text-gray-400 hover:text-gray-300">
+            <FastLink href="/" className="text-lg text-gray-400 hover:text-gray-300">
                 Home
-            </Link>
+            </FastLink>
           </div>
 
           {/* <div className="px-5 py-2">
@@ -104,8 +102,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
-
+export default Footer; 
