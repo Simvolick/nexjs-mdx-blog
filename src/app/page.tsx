@@ -2,6 +2,8 @@ import fs from "fs";
 import * as path from "path";
 import matter from "gray-matter";
 import BlogPosts from "../components/BlogPosts";
+import Hero from "../components/Hero";
+import ServicesSection from "../components/ServicesSection";
 import { Post } from "../types/blog";
 
 // This needs to be an async function to get the posts
@@ -21,12 +23,12 @@ async function getAllPosts(): Promise<Post[]> {
     };
   });
 
-  // Sort posts by jsonDate
+  // Sort posts by jsonDate and return only the latest 3
   const sortedPosts = posts.sort((a, b) => {
     return new Date(b.jsonDate).getTime() - new Date(a.jsonDate).getTime();
   });
   
-  return sortedPosts;
+  return sortedPosts.slice(0, 3);
 }
 
 export default async function HomePage() {
@@ -34,6 +36,8 @@ export default async function HomePage() {
 
   return (
     <div>
+      <Hero />
+      <ServicesSection />
       <BlogPosts posts={posts} />
     </div>
   );

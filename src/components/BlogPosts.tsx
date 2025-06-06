@@ -10,7 +10,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   return (
     <div className="mt-5 mx-5 text-center">
       <div className="font-semibold text-5xl flex flex-auto justify-center ">
-        <div className="bg-orange-400 px-3 py-1 rounded-xl">All Posts:</div>
+        <div className="bg-orange-400 px-3 py-1 rounded-xl">Latest Posts:</div>
       </div>
       {posts.map((post, index) => (
         <div className="mt-3 text-center items-center cursor-pointer md:mx-32 lg:mx-52" key={index}>
