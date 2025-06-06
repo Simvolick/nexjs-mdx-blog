@@ -5,6 +5,31 @@ import BlogPosts from "../components/BlogPosts";
 import Hero from "../components/Hero";
 import ServicesSection from "../components/ServicesSection";
 import { Post } from "../types/blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "KlimY Blog - Productivity, Health & Personal Development",
+  description: "Discover expert insights on productivity, health, wellness, and personal development. Learn about walking benefits, focus techniques, habit building, and lifestyle improvements through evidence-based articles.",
+  keywords: [
+    "productivity", "health", "wellness", "personal development", "walking benefits", 
+    "focus techniques", "habits", "lifestyle", "self-improvement", "mindfulness",
+    "work-life balance", "fitness", "mental health"
+  ],
+  openGraph: {
+    title: "KlimY Blog - Productivity, Health & Personal Development",
+    description: "Discover expert insights on productivity, health, wellness, and personal development. Learn about walking benefits, focus techniques, habit building, and lifestyle improvements.",
+    type: "website",
+    url: "https://klimy.co",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KlimY Blog - Productivity, Health & Personal Development",
+    description: "Discover expert insights on productivity, health, wellness, and personal development.",
+  },
+  alternates: {
+    canonical: "https://klimy.co",
+  },
+};
 
 // This needs to be an async function to get the posts
 async function getAllPosts(): Promise<Post[]> {
@@ -34,11 +59,43 @@ async function getAllPosts(): Promise<Post[]> {
 export default async function HomePage() {
   const posts = await getAllPosts();
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'KlimY Blog',
+    url: 'https://klimy.co',
+    description: 'Discover expert insights on productivity, health, wellness, and personal development.',
+    author: {
+      '@type': 'Person',
+      name: 'KlimY',
+      url: 'https://klimy.co',
+    },
+    sameAs: [
+      // Add your social media URLs here
+      // 'https://twitter.com/yourusername',
+      // 'https://linkedin.com/in/yourusername',
+    ],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://klimy.co/blog?search={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
-    <div>
-      <Hero />
-      <ServicesSection />
-      <BlogPosts posts={posts} />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div>
+        <Hero />
+        <ServicesSection />
+        <BlogPosts posts={posts} />
+      </div>
+    </>
   );
 } 

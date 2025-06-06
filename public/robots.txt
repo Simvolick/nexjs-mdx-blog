@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Allow all crawlers access to CSS and JS files
+Allow: /*.css
+Allow: /*.js
+
+# Sitemap
+Sitemap: https://klimy.co/sitemap.xml
+
+# Common disallows (adjust based on your site structure)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+
+# Block AI crawlers if desired (uncomment if you want to block them)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ChatGPT-User
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+# User-agent: anthropic-ai
+# Disallow: / 
