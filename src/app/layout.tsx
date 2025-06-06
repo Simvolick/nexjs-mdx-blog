@@ -6,14 +6,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'KlimY Blog - Productivity, Health & Personal Development',
-    template: '%s | KlimY Blog'
+    default: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
+    template: '%s | Klim Yadrintsev Blog'
   },
   description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
   keywords: ['productivity', 'health', 'wellness', 'personal development', 'walking', 'habits', 'focus', 'lifestyle'],
-  authors: [{ name: 'KlimY' }],
-  creator: 'KlimY',
-  publisher: 'KlimY Blog',
+  authors: [{ name: 'Klim Yadrintsev' }],
+  creator: 'Klim Yadrintsev',
+  publisher: 'Klim Yadrintsev Blog',
   robots: {
     index: true,
     follow: true,
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://klimy.co',
-    title: 'KlimY Blog - Productivity, Health & Personal Development',
+    title: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
     description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
-    siteName: 'KlimY Blog',
+    siteName: 'Klim Yadrintsev Blog',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KlimY Blog - Productivity, Health & Personal Development',
+    title: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
     description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
   },
   verification: {
