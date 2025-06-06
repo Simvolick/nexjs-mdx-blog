@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'KlimY Blog - Productivity, Health & Personal Development';
+export const alt = 'Klim Yadrintsev Blog - Productivity, Health & Personal Development';
 export const size = {
   width: 1200,
   height: 630,
@@ -36,7 +36,7 @@ export default async function Image() {
             marginBottom: 20,
           }}
         >
-          KlimY Blog
+          Klim Yadrintsev Blog
         </div>
         <div
           style={{
@@ -47,7 +47,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          Productivity, Health & Personal Development
+          Ecommerce Consulting for DTC Fashion Brands
         </div>
         <div
           style={{

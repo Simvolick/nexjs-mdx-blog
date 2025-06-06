@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           <div className="mb-8">
             <Image
               src="/other_images/photos/klimyadrintevphoto.webp"
-              alt="Klimy Adriantsev"
+              alt="Klim Yadrintsev"
               width={200}
               height={200}
               className="rounded-full mx-auto shadow-lg"

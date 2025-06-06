@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description: "Read all articles about productivity, health, wellness, personal development, and lifestyle improvements. Discover expert insights and practical tips for better living.",
   keywords: ["blog", "articles", "productivity", "health", "wellness", "personal development", "walking", "habits"],
   openGraph: {
-    title: "Blog - All Articles | KlimY Blog",
+    title: "Blog - All Articles | Klim Yadrintsev Blog",
     description: "Read all articles about productivity, health, wellness, personal development, and lifestyle improvements. Discover expert insights and practical tips for better living.",
     type: "website",
     url: "https://klimy.co/blog",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog - All Articles | KlimY Blog",
+    title: "Blog - All Articles | Klim Yadrintsev Blog",
     description: "Read all articles about productivity, health, wellness, personal development, and lifestyle improvements.",
   },
   alternates: {

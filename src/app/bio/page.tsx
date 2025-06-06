@@ -3,16 +3,16 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About KlimY - Fashion Ecommerce Consultant & Tech Entrepreneur",
-  description: "Learn about Klimy Adriantsev, fashion ecommerce consultant and tech entrepreneur. Former CEO of elyts fashion ($30M revenue) and Querion.ai. Expert in ecommerce optimization, SEO, and scaling businesses.",
+  title: "About Klim Yadrintsev - Fashion Ecommerce Consultant & Tech Entrepreneur",
+  description: "Learn about Klim Yadrintsev, fashion ecommerce consultant and tech entrepreneur. Former CEO of elyts fashion ($30M revenue) and Querion.ai. Expert in ecommerce optimization, SEO, and scaling businesses.",
   keywords: [
-    "Klimy Adriantsev", "fashion ecommerce consultant", "tech entrepreneur", 
+    "Klim Yadrintsev", "fashion ecommerce consultant", "tech entrepreneur", 
     "ecommerce optimization", "SEO expert", "business scaling", "elyts fashion", 
     "Querion.ai", "Malta fashion", "ecommerce growth"
   ],
   openGraph: {
-    title: "About KlimY - Fashion Ecommerce Consultant & Tech Entrepreneur",
-    description: "Learn about Klimy Adriantsev, fashion ecommerce consultant and tech entrepreneur. Former CEO of elyts fashion ($30M revenue) and Querion.ai.",
+    title: "About Klim Yadrintsev - Fashion Ecommerce Consultant & Tech Entrepreneur",
+    description: "Learn about Klim Yadrintsev, fashion ecommerce consultant and tech entrepreneur. Former CEO of elyts fashion ($30M revenue) and Querion.ai.",
     type: "profile",
     url: "https://klimy.co/bio",
     images: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: "https://klimy.co/other_images/photos/klimyadrintevphoto.webp",
         width: 250,
         height: 250,
-        alt: "Klimy Adriantsev",
+        alt: "Klim Yadrintsev",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About KlimY - Fashion Ecommerce Consultant & Tech Entrepreneur",
-    description: "Learn about Klimy Adriantsev, fashion ecommerce consultant and tech entrepreneur.",
+    title: "About Klim Yadrintsev - Fashion Ecommerce Consultant & Tech Entrepreneur",
+    description: "Learn about Klim Yadrintsev, fashion ecommerce consultant and tech entrepreneur.",
   },
   alternates: {
     canonical: "https://klimy.co/bio",
@@ -43,7 +43,7 @@ export default function BioPage() {
           <div className="mb-8">
             <Image
               src="/other_images/photos/klimyadrintevphoto.webp"
-              alt="Klimy Adriantsev"
+              alt="Klim Yadrintsev"
               width={250}
               height={250}
               className="rounded-full mx-auto shadow-xl"
@@ -51,7 +51,7 @@ export default function BioPage() {
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Klimy Adriantsev
+            Klim Yadrintsev
           </h1>
           <p className="text-xl text-gray-600 mb-6">
             Fashion Ecommerce Consultant & Tech Entrepreneur

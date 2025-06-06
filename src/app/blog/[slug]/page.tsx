@@ -29,9 +29,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: frontMatter.title,
       description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
       keywords: frontMatter.tags || ['productivity', 'health', 'wellness', 'personal development'],
-      authors: [{ name: 'KlimY' }],
-      creator: 'KlimY',
-      publisher: 'KlimY Blog',
+      authors: [{ name: 'Klim Yadrintsev' }],
+      creator: 'Klim Yadrintsev',
+      publisher: 'Klim Yadrintsev Blog',
       robots: {
         index: true,
         follow: true,
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             alt: frontMatter.title,
           },
         ],
-        siteName: 'KlimY Blog',
+        siteName: 'Klim Yadrintsev Blog',
         publishedTime: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
         tags: frontMatter.tags || [],
       },
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   } catch (error) {
     return {
-      title: 'Blog Post | KlimY Blog',
+      title: 'Blog Post | Klim Yadrintsev Blog',
       description: 'Read insights on productivity, health, and personal development.',
     };
   }
@@ -99,12 +99,12 @@ function generateStructuredData(frontMatter: FrontMatter, slug: string) {
     dateModified: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
     author: {
       '@type': 'Person',
-      name: 'KlimY',
+      name: 'Klim Yadrintsev',
       url: baseUrl,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'KlimY Blog',
+      name: 'Klim Yadrintsev Blog',
       url: baseUrl,
     },
     keywords: frontMatter.tags?.join(', ') || 'productivity, health, wellness',

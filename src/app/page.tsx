@@ -8,7 +8,7 @@ import { Post } from "../types/blog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "KlimY Blog - Productivity, Health & Personal Development",
+  title: "Klim Yadrintsev Blog - Productivity, Health & Personal Development",
   description: "Discover expert insights on productivity, health, wellness, and personal development. Learn about walking benefits, focus techniques, habit building, and lifestyle improvements through evidence-based articles.",
   keywords: [
     "productivity", "health", "wellness", "personal development", "walking benefits", 
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "work-life balance", "fitness", "mental health"
   ],
   openGraph: {
-    title: "KlimY Blog - Productivity, Health & Personal Development",
+    title: "Klim Yadrintsev Blog - Productivity, Health & Personal Development",
     description: "Discover expert insights on productivity, health, wellness, and personal development. Learn about walking benefits, focus techniques, habit building, and lifestyle improvements.",
     type: "website",
     url: "https://klimy.co",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KlimY Blog - Productivity, Health & Personal Development",
+    title: "Klim Yadrintsev Blog - Productivity, Health & Personal Development",
     description: "Discover expert insights on productivity, health, wellness, and personal development.",
   },
   alternates: {
@@ -62,12 +62,12 @@ export default async function HomePage() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'KlimY Blog',
+    name: 'Klim Yadrintsev Blog',
     url: 'https://klimy.co',
     description: 'Discover expert insights on productivity, health, wellness, and personal development.',
     author: {
       '@type': 'Person',
-      name: 'KlimY',
+      name: 'Klim Yadrintsev',
       url: 'https://klimy.co',
     },
     sameAs: [
