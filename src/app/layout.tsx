@@ -59,10 +59,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <head>
-        <meta name="theme-color" content="#3b82f6" />
-        <meta name="msapplication-TileColor" content="#3b82f6" />
-      </head>
       <body className="bg-white text-gray-900 antialiased">
         <div className="min-h-screen flex flex-col">
           <Nav />
