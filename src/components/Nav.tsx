@@ -1,3 +1,5 @@
+"use client";
+
 import FastLink from "./FastLink";
 import Image from "next/image";
 import KlimsImage from "/public/other_images/photos/klimyadrintevphoto.webp";

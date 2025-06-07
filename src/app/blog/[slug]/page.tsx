@@ -5,6 +5,7 @@ import Image from 'next/image';
 import MDXRenderer from '../../../components/MDXRenderer';
 import { FrontMatter } from '../../../types/blog';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 interface Params {
   slug: string;
@@ -14,73 +15,128 @@ interface BlogPostPageProps {
   params: Promise<Params>;
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  
+// Helper function to get post data with error handling
+async function getPostData(slug: string) {
   try {
-    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), 'src', 'posts', slug + '.mdx'), 'utf-8');
-    const { data: frontMatter }: { data: FrontMatter } = matter(markdownWithMeta);
+    const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.mdx');
     
-    const baseUrl = 'https://klimy.co';
-    const postUrl = `${baseUrl}/blog/${slug}`;
-    const imageUrl = frontMatter.thumbnailUrl ? `${baseUrl}${frontMatter.thumbnailUrl}` : `${baseUrl}/og-image.jpg`;
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
     
-    return {
-      title: frontMatter.title,
-      description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
-      keywords: frontMatter.tags || ['productivity', 'health', 'wellness', 'personal development'],
-      authors: [{ name: 'Klim Yadrintsev' }],
-      creator: 'Klim Yadrintsev',
-      publisher: 'Klim Yadrintsev Blog',
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          'max-video-preview': -1,
-          'max-image-preview': 'large',
-          'max-snippet': -1,
-        },
-      },
-      openGraph: {
-        title: frontMatter.title,
-        description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
-        type: 'article',
-        url: postUrl,
-        images: [
-          {
-            url: imageUrl,
-            width: 1200,
-            height: 630,
-            alt: frontMatter.title,
-          },
-        ],
-        siteName: 'Klim Yadrintsev Blog',
-        publishedTime: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
-        tags: frontMatter.tags || [],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: frontMatter.title,
-        description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
-        images: [imageUrl],
-      },
-      alternates: {
-        canonical: postUrl,
-      },
-    };
+    const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontMatter, content } = matter(markdownWithMeta);
+    
+    // Validate required frontmatter
+    if (!frontMatter.title) {
+      console.error(`Post ${slug} is missing required title`);
+      return null;
+    }
+    
+    return { frontMatter: frontMatter as FrontMatter, content };
   } catch (error) {
-    return {
-      title: 'Blog Post | Klim Yadrintsev Blog',
-      description: 'Read insights on productivity, health, and personal development.',
-    };
+    console.error(`Error loading post ${slug}:`, error);
+    return null;
   }
 }
 
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  
+  const postData = await getPostData(slug);
+  
+  if (!postData) {
+    return {
+      title: 'Post Not Found | Klim Yadrintsev Blog',
+      description: 'The requested blog post could not be found.',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+  
+  const { frontMatter } = postData;
+  const baseUrl = 'https://klimy.co';
+  const postUrl = `${baseUrl}/blog/${slug}`;
+  const imageUrl = frontMatter.thumbnailUrl ? `${baseUrl}${frontMatter.thumbnailUrl}` : `${baseUrl}/og-image.jpg`;
+  
+  return {
+    title: frontMatter.title,
+    description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
+    keywords: frontMatter.tags || ['productivity', 'health', 'wellness', 'personal development'],
+    authors: [{ name: 'Klim Yadrintsev' }],
+    creator: 'Klim Yadrintsev',
+    publisher: 'Klim Yadrintsev Blog',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    openGraph: {
+      title: frontMatter.title,
+      description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
+      type: 'article',
+      url: postUrl,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: frontMatter.title,
+        },
+      ],
+      siteName: 'Klim Yadrintsev Blog',
+      publishedTime: frontMatter.date ? new Date(frontMatter.date).toISOString() : new Date().toISOString(),
+      tags: frontMatter.tags || [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontMatter.title,
+      description: frontMatter.description || `Read "${frontMatter.title}" - insights on productivity, health, and personal development.`,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: postUrl,
+    },
+  };
+}
+
 export async function generateStaticParams(): Promise<Params[]> {
-  const files = fs.readdirSync(path.join(process.cwd(), 'src', 'posts'));
-  return files.map(filename => ({ slug: filename.replace('.mdx', '') }));
+  try {
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+    
+    if (!fs.existsSync(postsDirectory)) {
+      console.warn('Posts directory does not exist');
+      return [];
+    }
+    
+    const files = fs.readdirSync(postsDirectory);
+    
+    return files
+      .filter(filename => filename.endsWith('.mdx'))
+      .map(filename => ({ slug: filename.replace('.mdx', '') }))
+      .filter(({ slug }) => {
+        // Validate that the post can be loaded properly
+        const filePath = path.join(postsDirectory, slug + '.mdx');
+        try {
+          const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
+          const { data: frontMatter } = matter(markdownWithMeta);
+          return frontMatter.title && frontMatter.published !== false && !frontMatter.draft;
+        } catch {
+          return false;
+        }
+      });
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 function generateStructuredData(frontMatter: FrontMatter, slug: string) {
@@ -115,9 +171,14 @@ function generateStructuredData(frontMatter: FrontMatter, slug: string) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), 'src', 'posts', slug + '.mdx'), 'utf-8');
-  const { data: frontMatter, content }: { data: FrontMatter; content: string } = matter(markdownWithMeta);
-
+  
+  const postData = await getPostData(slug);
+  
+  if (!postData) {
+    notFound();
+  }
+  
+  const { frontMatter, content } = postData;
   const structuredData = generateStructuredData(frontMatter, slug);
 
   return (

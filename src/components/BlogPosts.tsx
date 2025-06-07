@@ -14,7 +14,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
       </div>
       {posts.map((post, index) => (
         <div className="mt-3 text-center items-center cursor-pointer md:mx-32 lg:mx-52" key={index}>
-            <FastLink href={"/blog/" + post.slug} passHref key={index}>
+            <FastLink href={"/blog/" + post.slug} key={index}>
             <div className="m-2">
               <h2 className="text-2xl font-medium">{post.frontMatter.title}</h2>
               <p className="mt-3 text-center sm:mx-20 lg:mx-40">

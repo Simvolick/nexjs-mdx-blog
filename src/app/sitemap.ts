@@ -28,25 +28,60 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Get all blog posts
-  const postsDirectory = path.join(process.cwd(), 'src', 'posts');
-  const filenames = fs.readdirSync(postsDirectory);
+  // Get all blog posts with error handling
+  let blogPosts: MetadataRoute.Sitemap = [];
   
-  const blogPosts = filenames
-    .filter(name => name.endsWith('.mdx'))
-    .map(filename => {
-      const slug = filename.replace('.mdx', '');
-      const filePath = path.join(postsDirectory, filename);
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data: frontMatter } = matter(fileContents);
-      
-      return {
-        url: `${baseUrl}/blog/${slug}`,
-        lastModified: frontMatter.date ? new Date(frontMatter.date) : new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      };
-    });
+  try {
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+    
+    if (!fs.existsSync(postsDirectory)) {
+      console.warn('Posts directory does not exist');
+      return staticPages;
+    }
+    
+    const filenames = fs.readdirSync(postsDirectory);
+    
+    blogPosts = filenames
+      .filter(name => name.endsWith('.mdx'))
+      .map(filename => {
+        try {
+          const slug = filename.replace('.mdx', '');
+          const filePath = path.join(postsDirectory, filename);
+          
+          if (!fs.existsSync(filePath)) {
+            console.warn(`Post file does not exist: ${filePath}`);
+            return null;
+          }
+          
+          const fileContents = fs.readFileSync(filePath, 'utf8');
+          const { data: frontMatter } = matter(fileContents);
+          
+          // Skip posts that are marked as draft or unpublished
+          if (frontMatter.draft === true || frontMatter.published === false) {
+            return null;
+          }
+          
+          // Validate required frontmatter
+          if (!frontMatter.title) {
+            console.warn(`Post missing title: ${filename}`);
+            return null;
+          }
+          
+          return {
+            url: `${baseUrl}/blog/${slug}`,
+            lastModified: frontMatter.date ? new Date(frontMatter.date) : new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+          };
+        } catch (error) {
+          console.error(`Error processing post ${filename}:`, error);
+          return null;
+        }
+      })
+      .filter((post): post is NonNullable<typeof post> => post !== null);
+  } catch (error) {
+    console.error('Error generating blog posts for sitemap:', error);
+  }
 
   return [...staticPages, ...blogPosts];
 } 

@@ -9,30 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "12": "^1.0.2",
     "@headlessui/react": "^2.2.4",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/typography": "^0.5.16",
     "airtable": "^0.12.2",
-    "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "^15.3.2",
     "next-mdx-remote": "^5.0.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "latest",
+    "react-dom": "latest",
     "react-social-media-embed": "^2.5.18",
     "react-syntax-highlighter": "^15.6.1",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
     "@types/node": "^22.15.24",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^9.27.0",
     "eslint-config-next": "^15.3.2",
     "postcss": "^8.5.4",
     "typescript": "^5.8.3",
     "webpack": "^5.99.9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }

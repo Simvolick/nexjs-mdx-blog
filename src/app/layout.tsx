@@ -6,11 +6,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
+    default: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
     template: '%s | Klim Yadrintsev Blog'
   },
-  description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
-  keywords: ['productivity', 'health', 'wellness', 'personal development', 'walking', 'habits', 'focus', 'lifestyle'],
+  description: 'Discover insights on ecommerce consulting for your DTC fashion brand.',
+  keywords: ['ecommerce', 'consulting', 'dtc', 'fashion', 'brand', 'strategy', 'growth', 'marketing', 'operations'],
   authors: [{ name: 'Klim Yadrintsev' }],
   creator: 'Klim Yadrintsev',
   publisher: 'Klim Yadrintsev Blog',
@@ -29,20 +29,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://klimy.co',
-    title: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
-    description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
+    title: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
+    description: 'Discover insights on ecommerce consulting for your DTC fashion brand.',
     siteName: 'Klim Yadrintsev Blog',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Klim Yadrintsev Blog - Productivity, Health & Personal Development',
-    description: 'Discover insights on productivity, health, wellness, and personal development. Expert advice on walking benefits, focus techniques, and building better habits.',
+    title: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
+    description: 'Discover insights on ecommerce consulting for your DTC fashion brand.',
   },
   verification: {
     google: 'google-site-verification-code', // Replace with your actual verification code
-  },
-  alternates: {
-    canonical: 'https://klimy.co',
   },
   icons: {
     icon: [
@@ -63,7 +60,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://klimy.co" />
         <meta name="theme-color" content="#3b82f6" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
       </head>

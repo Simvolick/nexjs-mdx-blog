@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -7,21 +5,19 @@ interface FastLinkProps {
   href: string;
   children: ReactNode;
   className?: string;
-  passHref?: boolean;
 }
 
 const FastLink: React.FC<FastLinkProps> = ({ 
   href, 
   children, 
-  className, 
-  passHref = false 
+  className,
 }) => {
+  
   return (
     <Link 
       href={href} 
       className={className}
-      passHref={passHref}
-      prefetch={false} // This enables hover prefetching (Next.js 10.0.3+)
+      prefetch={false} // Disable prefetch to prevent RSC payload issues
     >
       {children}
     </Link>
