@@ -1,3 +1,5 @@
+'use client';
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,8 +25,6 @@ export const metadata: Metadata = {
     canonical: "/landing/ecommerce/consultant-list",
   },
 };
-
-'use client';
 
 import { useEffect } from 'react';
 
