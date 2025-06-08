@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import BlogPosts from "../components/BlogPosts";
 import Hero from "../components/Hero";
 import ServicesSection from "../components/ServicesSection";
+import BrandsSection from "../components/BrandsSection";
 import { Post } from "../types/blog";
 import { Metadata } from "next";
 
@@ -48,8 +49,17 @@ async function getAllPosts(): Promise<Post[]> {
     };
   });
 
-  // Sort posts by jsonDate and return only the latest 3
+  // Sort posts by priority (non-moved content first) then by date
   const sortedPosts = posts.sort((a, b) => {
+    // Check if posts have moved-content.webp thumbnail
+    const aIsMoved = a.frontMatter.thumbnailUrl?.includes('moved-content.webp');
+    const bIsMoved = b.frontMatter.thumbnailUrl?.includes('moved-content.webp');
+    
+    // If one is moved and other isn't, prioritize the non-moved one
+    if (aIsMoved && !bIsMoved) return 1;
+    if (!aIsMoved && bIsMoved) return -1;
+    
+    // If both are same type (both moved or both not moved), sort by date
     return new Date(b.jsonDate).getTime() - new Date(a.jsonDate).getTime();
   });
   
@@ -92,6 +102,7 @@ export default async function HomePage() {
         <Hero />
         <ServicesSection />
         <BlogPosts posts={posts} />
+        <BrandsSection />
       </div>
     </>
   );

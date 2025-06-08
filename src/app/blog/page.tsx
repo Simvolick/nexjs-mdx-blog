@@ -42,8 +42,17 @@ async function getAllPosts(): Promise<Post[]> {
     };
   });
 
-  // Sort posts by jsonDate
+  // Sort posts by priority (non-moved content first) then by date
   const sortedPosts = posts.sort((a, b) => {
+    // Check if posts have moved-content.webp thumbnail
+    const aIsMoved = a.frontMatter.thumbnailUrl?.includes('moved-content.webp');
+    const bIsMoved = b.frontMatter.thumbnailUrl?.includes('moved-content.webp');
+    
+    // If one is moved and other isn't, prioritize the non-moved one
+    if (aIsMoved && !bIsMoved) return 1;
+    if (!aIsMoved && bIsMoved) return -1;
+    
+    // If both are same type (both moved or both not moved), sort by date
     return new Date(b.jsonDate).getTime() - new Date(a.jsonDate).getTime();
   });
   
