@@ -5,6 +5,7 @@ import EmailForm from '../components/EmailForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://klimy.co'),
   title: {
     default: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
     template: '%s | Klim Yadrintsev Blog'

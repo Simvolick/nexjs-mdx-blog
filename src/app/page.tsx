@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: "Discover expert insights on productivity, health, wellness, and personal development.",
   },
   alternates: {
-    canonical: "https://klimy.co",
+    canonical: "/",
   },
 };
 

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Learn about Klim Yadrintsev, fashion ecommerce consultant and tech entrepreneur.",
   },
   alternates: {
-    canonical: "https://klimy.co/bio",
+    canonical: "/bio",
   },
 };
 

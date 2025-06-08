@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       images: [imageUrl],
     },
     alternates: {
-      canonical: postUrl,
+      canonical: `/blog/${slug}`,
     },
   };
 }

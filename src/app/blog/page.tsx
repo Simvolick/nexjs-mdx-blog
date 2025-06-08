@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Read all articles about productivity, health, wellness, personal development, and lifestyle improvements.",
   },
   alternates: {
-    canonical: "https://klimy.co/blog",
+    canonical: "/blog",
   },
 };
 
