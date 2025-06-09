@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
   
   const { frontMatter } = postData;
-  const baseUrl = 'https://klimy.co';
+  const baseUrl = 'https://www.klimy.co';
   const postUrl = `${baseUrl}/blog/${slug}`;
   const imageUrl = frontMatter.thumbnailUrl ? `${baseUrl}${frontMatter.thumbnailUrl}` : `${baseUrl}/og-image.jpg`;
   

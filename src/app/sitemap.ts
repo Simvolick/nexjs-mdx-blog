@@ -4,7 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://klimy.co';
+  const baseUrl = 'https://www.klimy.co';
   
   // Static pages
   const staticPages = [

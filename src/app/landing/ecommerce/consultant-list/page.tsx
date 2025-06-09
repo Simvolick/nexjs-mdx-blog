@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "E-commerce Consulting Services - Comprehensive Guide",
     description: "Discover the right e-commerce consultants for your business needs. Complete guide covering strategy, marketing, technology, and operations consulting.",
     type: "article",
-    url: "https://klimy.co/landing/ecommerce/consultant-list",
+    url: "https://www.klimy.co/landing/ecommerce/consultant-list",
   },
   twitter: {
     card: "summary_large_image",

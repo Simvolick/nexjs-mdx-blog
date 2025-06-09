@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     title: "About Klim Yadrintsev - Fashion Ecommerce Consultant & Tech Entrepreneur",
     description: "Learn about Klim Yadrintsev, fashion ecommerce consultant and tech entrepreneur. Former CEO of elyts fashion ($30M revenue) and Querion.ai.",
     type: "profile",
-    url: "https://klimy.co/bio",
+    url: "https://www.klimy.co/bio",
     images: [
       {
-        url: "https://klimy.co/other_images/photos/klimyadrintevphoto.webp",
+        url: "https://www.klimy.co/other_images/photos/klimyadrintevphoto.webp",
         width: 250,
         height: 250,
         alt: "Klim Yadrintsev",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Blog - All Articles | Klim Yadrintsev Blog",
     description: "Read all articles about productivity, health, wellness, personal development, and lifestyle improvements. Discover expert insights and practical tips for better living.",
     type: "website",
-    url: "https://klimy.co/blog",
+    url: "https://www.klimy.co/blog",
   },
   twitter: {
     card: "summary_large_image",

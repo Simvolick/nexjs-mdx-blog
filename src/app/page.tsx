@@ -73,12 +73,12 @@ export default async function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Klim Yadrintsev Blog',
-    url: 'https://klimy.co',
+    url: 'https://www.klimy.co',
     description: 'Discover expert insights on productivity, health, wellness, and personal development.',
     author: {
       '@type': 'Person',
       name: 'Klim Yadrintsev',
-      url: 'https://klimy.co',
+      url: 'https://www.klimy.co',
     },
     sameAs: [
       // Add your social media URLs here
@@ -89,7 +89,7 @@ export default async function HomePage() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://klimy.co/blog?search={search_term_string}',
+        urlTemplate: 'https://www.klimy.co/blog?search={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },

@@ -5,7 +5,7 @@ import EmailForm from '../components/EmailForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://klimy.co'),
+  metadataBase: new URL('https://www.klimy.co'),
   title: {
     default: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
     template: '%s | Klim Yadrintsev Blog'
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://klimy.co',
+    url: 'https://www.klimy.co',
     title: 'Klim Yadrintsev Blog - Ecommerce Consulting for your DTC fashion brand',
     description: 'Discover insights on ecommerce consulting for your DTC fashion brand.',
     siteName: 'Klim Yadrintsev Blog',
