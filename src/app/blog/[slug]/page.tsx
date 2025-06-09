@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       images: [imageUrl],
     },
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `https://www.klimy.co/blog/${slug}`,
     },
   };
 }
@@ -140,7 +140,7 @@ export async function generateStaticParams(): Promise<Params[]> {
 }
 
 function generateStructuredData(frontMatter: FrontMatter, slug: string) {
-  const baseUrl = 'https://klimy.co';
+  const baseUrl = 'https://www.klimy.co';
   const postUrl = `${baseUrl}/blog/${slug}`;
   const imageUrl = frontMatter.thumbnailUrl ? `${baseUrl}${frontMatter.thumbnailUrl}` : `${baseUrl}/og-image.jpg`;
   

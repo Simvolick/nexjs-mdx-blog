@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://klimy.co/sitemap.xml',
+    sitemap: 'https://www.klimy.co/sitemap.xml',
   }
 } 

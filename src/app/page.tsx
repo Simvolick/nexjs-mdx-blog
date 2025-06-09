@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Klim Yadrintsev Blog - Productivity, Health & Personal Development",
     description: "Discover expert insights on productivity, health, wellness, and personal development. Learn about walking benefits, focus techniques, habit building, and lifestyle improvements.",
     type: "website",
-    url: "https://klimy.co",
+    url: "https://www.klimy.co",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Discover expert insights on productivity, health, wellness, and personal development.",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.klimy.co",
   },
 };
 
