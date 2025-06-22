@@ -37,6 +37,11 @@ const Nav: React.FC = () => {
                 Blog
               </h2>
             </FastLink>
+            <FastLink href="/landing/free-resources">
+              <h2 className="ms-5 cursor-pointer mx-5 hover:text-gray-500">
+                Free Resources
+              </h2>
+            </FastLink>
 
           </div>
         </div>
